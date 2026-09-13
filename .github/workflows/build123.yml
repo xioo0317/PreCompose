@@ -23,13 +23,13 @@ jobs:
       run: chmod +x gradlew
 
     - name: Assemble Debug
-      run: ./gradlew assembleDebug --stacktrace
+      run: ./gradlew :sample:todo:android:assembleDebug --stacktrace
 
     - name: Unit Test
-      run: ./gradlew test --stacktrace
+      run: ./gradlew :sample:todo:android:test --stacktrace
 
     - name: Upload Debug‑APK
       uses: actions/upload-artifact@v4
       with:
         name: debug-apk
-        path: app/build/outputs/apk/debug/*.apk
+        path: sample/todo/android/build/outputs/apk/debug/*.apk
